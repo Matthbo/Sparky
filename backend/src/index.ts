@@ -355,9 +355,8 @@ connect().then(async () => {
             }
 
             // Remove deprecated properties some may still have in their config
-            delete loaded.success_emoji;
-            delete loaded.error_emoji;
-
+            // delete loaded.success_emoji;
+            // delete loaded.error_emoji;
             return loaded;
           } catch (err) {
             logger.error(`Error while loading config "${key}"`);
