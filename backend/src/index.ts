@@ -405,6 +405,7 @@ connect().then(async () => {
 
   client.once("clientReady", () => {
     startUptimeCounter();
+    setActivity(client);
   });
 
   client.rest.on(RESTEvents.RateLimited, (data) => {

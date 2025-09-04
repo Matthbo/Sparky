@@ -60,6 +60,8 @@ const envType = z.object({
     .transform((str) => str === "true"),
 
   NODE_ENV: z.string().default("development"),
+
+  ACTIVITY: z.string().optional(),
 });
 
 let toValidate = { ...process.env };
