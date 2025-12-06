@@ -54,6 +54,7 @@ import {
 import { DecayingCounter } from "./utils/DecayingCounter.js";
 import { enableProfiling } from "./utils/easyProfiler.js";
 import { loadYamlSafely } from "./utils/loadYamlSafely.js";
+import { setActivity, runSetActivityLoop } from "./custom/setActivity.js";
 
 // Error handling
 let recentPluginErrors = 0;
@@ -440,6 +441,8 @@ connect().then(async () => {
     runExpiredMemberCacheDeletionLoop();
     await sleep(10 * SECONDS);
     runMemberCacheDeletionLoop();
+    await sleep(10 * SECONDS);
+    runSetActivityLoop(client);
   });
 
   let lowestGlobalRemaining = Infinity;
